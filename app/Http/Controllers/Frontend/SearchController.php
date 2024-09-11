@@ -3,19 +3,16 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Details;
+use App\Models\Admin;
+use App\Models\Search;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
     public function index()
     {
-        return view ('frontend.search');
+        $images = Admin::all();
+        return view ('frontend.search', compact('images'));
     }
-    public function title(Request $request)
-    {
-        $data = new Details();
-        $data->tile = $request->title;
-        $data->save();
-    }
+
 }

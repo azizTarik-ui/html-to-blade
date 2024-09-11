@@ -11,12 +11,19 @@ class AdminController extends Controller
 {
     public function index()
     {
+
         return view('admin.dashboard');
     }
-    public function viewBlog()
+    public function viewBlog(Request $request)
     {
-        $images = Admin::all();
-        return view('admin.view-blog', compact('images'));
+        // return $request;
+        $searched_title = $request->blog_search ?? "";
+        if ($request->blog_search) {
+            $images = Admin::where('title', 'like', "%$request->blog_search%")->get();
+        } else {
+            $images = Admin::get();
+        }
+        return view('admin.view-blog', compact('images', 'searched_title'));
     }
     public function addImage()
     {

@@ -8,10 +8,10 @@
             <div class="row">
                 <div class="col-lg-9 text-center mx-auto">
                     <h4>‘Travel’ here’s what we’ve got</h4>
-                    <form action="#">
+                    <form action="{{ route('search') }}" method="GET">
                         <div class="form">
                             <div class="search-area-input">
-                                <input type="text" placeholder="Travel">
+                                <input type="text" name="title_search" placeholder="Travel" value="{{ $search_blog }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="feather feather-search">

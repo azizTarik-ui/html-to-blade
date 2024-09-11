@@ -10,10 +10,6 @@ class Admin extends Model
     use HasFactory;
 
     protected $table = 'admins';
-    protected $fillable = [
-        'image',
-        'title',
-        'date',
-    ];
+    protected $guarded = [];
     public $timestamps = true;
 }

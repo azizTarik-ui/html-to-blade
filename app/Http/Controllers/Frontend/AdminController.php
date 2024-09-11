@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\File;
 
 class AdminController extends Controller
 {
@@ -22,12 +22,18 @@ class AdminController extends Controller
     {
         return view('admin.add-img');
     }
+    public function destroy($id)
+    {
+        $admin = Admin::find($id);
+        File::delete(('images/' . $admin->image));
+        $admin->delete();
+        return back();
+    }
     public function store(Request $request)
     {
+        // return $request;
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'title' => 'required|string|max:255',
-            'date' => 'required|date',
         ]);
 
         if ($request->hasFile('image')) {
@@ -42,6 +48,38 @@ class AdminController extends Controller
             'date' => $request->date,
         ]);
 
-        return redirect()->route('add-img');
+        return redirect()->route('view-blog');
+    }
+
+    public function edit($id)
+    {
+        $images = Admin::find($id);
+        return view('admin.edit-img', compact('images'));
+    }
+
+
+
+    public function update(Request $request, $id)
+    {
+        // return $request;
+        $request->validate([
+            'date' => 'required|date',
+        ]);
+
+        $data = Admin::find($id);
+        $filename =
+            $request->image ?? "";
+        if ($request->hasFile('image')) {
+            File::delete(('images/' . $data->image));
+            $file = $request->file('image');
+            $filename = date('ymdhis') . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images'), $filename);
+        }
+
+        $data->image = $filename;
+        $data->title = $request->title;
+        $data->date = $request->date;
+        $data->save();
+        return redirect()->route('view-blog');
     }
 }

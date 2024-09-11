@@ -38,7 +38,7 @@
                             <div class="blog-item-image">
                                 <a href="details.html">
                                     {{-- <img src="{{ url('frontend/dist/images/04.jpg') }}" alt="Image"> --}}
-                                    <img src="{{ asset('images' . $image->image) }}" alt="Image">
+                                    <img src="{{ asset('images/' . $image->image) }}" alt="Image">
                                 </a>
                             </div>
                             <div class="blog-item-info">

@@ -24,11 +24,11 @@
             @foreach ($images as $key=>$img)
                 <tr>
                 <td>{{++$key}}</td>
-                <td><img src="{{ asset('storage/images/' . $img->image) }}" alt="Image" class="img-thumbnail" style="width: 100px;"></td>
+                <td><img src="{{ asset('images/' . $img->image) }}" alt="Image" class="img-thumbnail" style="width: 100px;"></td>
                 <td>{{ $img->title }}</td>
                 <td>
-                    <a href="#edit" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="#delete" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="{{ route('blog-edit', $img->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="{{ route('blog-delete', $img->id) }}" class="btn btn-danger btn-sm">Delete</a>
                 </td>
                 <td>{{ $img->date }}</td>
             </tr>

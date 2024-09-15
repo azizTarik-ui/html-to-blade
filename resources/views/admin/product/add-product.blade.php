@@ -11,7 +11,7 @@
 
             <div class="mb-3">
                 <label>Category *</label>
-                <select name = "category_id" id="category_id" class="form-control" required>
+                <select name = "category_id" id="category_id" class="form-control selectpicker bg-primary" data-live-search="true" required>
                     <option value="">Select One</option>
                     @if (!@empty($categories))
                         @foreach ($categories as $category)

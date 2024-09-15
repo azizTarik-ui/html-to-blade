@@ -38,7 +38,7 @@ Route::get('/dashboard/add/sub-category', [SubCategoryController::class, 'create
 Route::post('/dashboard/store-sub-category', [SubCategoryController::class, 'store'])->name('store_sub_category');
 Route::get('/dashboard/edit/sub-category/{id}', [SubCategoryController::class, 'edit'])->name('edit_sub_category');
 Route::post('/dashboard/edit/sub-category/update/{id}', [SubCategoryController::class, 'update'])->name('update_sub_category');
-Route::get('/dashboard//sub-category/delete/{id}', [SubCategoryController::class, 'destroy'])->name('delete_sub_category');
+Route::get('/dashboard/sub-category/delete/{id}', [SubCategoryController::class, 'destroy'])->name('delete_sub_category');
 
 
 
@@ -46,6 +46,6 @@ Route::get('/dashboard/product', [ProductController::class, 'index'])->name('pro
 Route::get('/dashboard/add/product', [ProductController::class, 'create'])->name('add_product');
 Route::post('/dashboard/store/product', [ProductController::class, 'store'])->name('store_product');
 Route::get('category_wise_sub_category_ajax', [ProductController::class, 'catWiseSubCat']);
-
-
-
+Route::get('/dashboard/edit/product/{id}', [ProductController::class, 'edit'])->name('edit_product');
+Route::post('/dashboard/edit/product/update/{id}', [ProductController::class, 'update'])->name('update_product');
+Route::get('/dashboard/product/delete/{id}', [ProductController::class, 'destroy'])->name('delete_product');

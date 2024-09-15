@@ -32,8 +32,8 @@
                         <td>{{ $product->price }}</td>
 
                         <td>
-                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="#" onclick="return confirm('Are You Sure?')"
+                            <a href="{{ route('edit_product', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{ route('delete_product', $product->id) }}" onclick="return confirm('Are You Sure?')"
                                 class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>

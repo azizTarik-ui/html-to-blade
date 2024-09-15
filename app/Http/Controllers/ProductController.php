@@ -59,7 +59,10 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data['categories'] = Category::get();
+        $data['sub_categories'] = SubCategory::get();
+        $data['products'] = Product::find($id);
+        return view('admin.product.edit_product', $data);
     }
 
     /**
@@ -67,7 +70,16 @@ class ProductController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+        $data = Product::find($id);
+        $data->category_id = $request->category_id;
+        $data->sub_category_id = $request->sub_category_id;
+        $data->name = $request->name;
+        $data->price = $request->price;
+        $data->save();
+        return redirect()->route('product_list');
     }
 
     /**
@@ -75,7 +87,8 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Product::find($id)->delete();
+        return back()->with('error', 'Deleted.');
     }
 
     public function catWiseSubCat(Request $request)

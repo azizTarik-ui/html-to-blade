@@ -1,5 +1,7 @@
 @extends('admin.admin-main')
+
 @section('admin-main-container')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <div class="container mt-5">
 
         <div class="d-flex justify-content-between mb-3">
@@ -19,7 +21,7 @@
         </div>
     </div>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered" id="blog_table">
         <thead>
             <tr>
                 <th>Serial No.</th>
@@ -48,5 +50,16 @@
             <!-- Repeat rows as needed -->
         </tbody>
     </table>
-    </div>
+
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    <!-- Initialize DataTable -->
+    <script>
+            $('#blog_table').DataTable();
+    </script>
 @endsection

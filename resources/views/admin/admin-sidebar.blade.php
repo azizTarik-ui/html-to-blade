@@ -35,6 +35,10 @@
                                         class="mdi mdi-note-outline"></i><span class="hide-menu">Product List
                                     </span></a>
                             </li>
+                            <li class="sidebar-item"><a href="{{ route('product_report') }}" class="sidebar-link"><i
+                                        class="mdi mdi-note-outline"></i><span class="hide-menu">Product Report
+                                    </span></a>
+                            </li>
 
                         </ul>
                     </li>

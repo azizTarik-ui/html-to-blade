@@ -96,4 +96,22 @@ class ProductController extends Controller
         $data['sub_categories'] = SubCategory::where('category_id', $request->category_id)->get();
         return view('admin.product.category_wise_sub_category',$data);
     }
+
+
+    public function product_report()
+    {
+        $data['categories'] = Category::get();
+        $data['sub_categories'] = SubCategory::get();
+        $data['products'] = Product::get();
+        return view('admin.product.product_report', $data);
+    }
+
+    public function subWiseProduct(Request $request)
+    {
+        // return 'hi';
+        $data['products'] = Product::where('sub_category_id', $request->sub_category_id)->get();
+        // return $data['products'];
+        return view('admin.product.sub_category_wise_product', $data);
+    }
+
 }

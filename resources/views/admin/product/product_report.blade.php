@@ -104,6 +104,21 @@
                     $('.sub_cat_div').show();
                     $('#sub_category_id').html(response);
                     // console.log(response);
+
+                    var sub_category_id = $('#sub_category_id').val();
+                    // alert(sub_category_id);
+                    $.ajax({
+                        type: 'get',
+                        url: '{{ URL::to('sub_category_wise_product_ajax') }}',
+                        data: {
+                            sub_category_id: sub_category_id,
+                        },
+                        success: function(response) {
+                            $('.product_div').show();
+                            $('#product_id').html(response);
+                            console.log(response);
+                        },
+                    });
                 },
             });
         })
@@ -111,7 +126,7 @@
 
     <script>
         $('#sub_category_id').on('change', function() {
-            var sub_category_id = $(this).val();
+            var sub_category_id = $('#sub_category_id').val();
             // alert(sub_category_id);
             $.ajax({
                 type: 'get',

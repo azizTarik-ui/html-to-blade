@@ -31,7 +31,8 @@ Route::middleware([AuthenticateMiddleware::class])->group(function () {
     Route::post('/dashboard/store-category', [CategoryContoller::class, 'store'])->name('store_category');
     Route::get('/dashboard/edit/category/{id}', [CategoryContoller::class, 'edit'])->name('edit_category');
     Route::post('/dashboard/edit/category/update/{id}', [CategoryContoller::class, 'update'])->name('update_category');
-    Route::get('/dashboard//category/delete/{id}', [CategoryContoller::class, 'destroy'])->name('delete_category');
+    Route::get('/dashboard/category/delete/{id}', [CategoryContoller::class, 'destroy'])->name('delete_category');
+    Route::post('/dashboard/import_category', [CategoryContoller::class, 'import_category'])->name('import_category');
 
 
     Route::get('/dashboard/sub-category', [SubCategoryController::class, 'index'])->name('sub_category_list');
@@ -51,8 +52,6 @@ Route::middleware([AuthenticateMiddleware::class])->group(function () {
     Route::post('/dashboard/edit/product/update/{id}', [ProductController::class, 'update'])->name('update_product');
     Route::get('/dashboard/product/delete/{id}', [ProductController::class, 'destroy'])->name('delete_product');
     Route::get('sub_category_wise_product_ajax', [ProductController::class, 'subWiseProduct']);
-
-
     Route::get('/dashboard/product_report', [ProductController::class, 'product_report'])->name('product_report');
 });
 

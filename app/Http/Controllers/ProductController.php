@@ -61,8 +61,9 @@ class ProductController extends Controller
     {
         $data['categories'] = Category::get();
         $data['sub_categories'] = SubCategory::get();
-        $data['products'] = Product::find($id);
-        return view('admin.product.edit_product', $data);
+        $data['product'] = Product::find($id);
+        // return "Hiu";
+        return view('admin.product.edit-product', $data);
     }
 
     /**

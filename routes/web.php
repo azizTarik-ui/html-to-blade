@@ -8,6 +8,7 @@ use App\Http\Controllers\Frontend\DetailsController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\CategoryContoller;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Roles\RoleController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Middleware\AuthenticateMiddleware;
 use App\Models\Admin;
@@ -54,6 +55,14 @@ Route::middleware([AuthenticateMiddleware::class])->group(function () {
     Route::get('sub_category_wise_product_ajax', [ProductController::class, 'subWiseProduct']);
     Route::get('/dashboard/product_report', [ProductController::class, 'product_report'])->name('product_report');
 });
+
+
+
+// route::get('/roles', [RoleController::class, 'index'])->name('roles');
+route::resource('role', RoleController::class);
+
+
+
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::get('/register', [LoginController::class, 'register'])->name('register');

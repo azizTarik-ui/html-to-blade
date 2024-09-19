@@ -39,6 +39,10 @@
                                         class="mdi mdi-note-outline"></i><span class="hide-menu">Product Report
                                     </span></a>
                             </li>
+                            <li class="sidebar-item"><a href="{{ route('role.index') }}" class="sidebar-link"><i
+                                        class="mdi mdi-note-outline"></i><span class="hide-menu">Roles
+                                    </span></a>
+                            </li>
 
                         </ul>
                     </li>

@@ -15,6 +15,12 @@
         href="https://corporatetechbd.com/public/backend/images/favicon.png">
     <title>Corporate Technologies - Dashboard</title>
 
+   
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+
     <!-- Custom CSS -->
     <link href="https://corporatetechbd.com/public//backend/libs/flot/css/float-chart.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
@@ -32,8 +38,8 @@
 
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.4.47/css/materialdesignicons.css" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+
+
 
 
     <style>
@@ -172,7 +178,8 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic"
-                                href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                href="" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false"><img
                                     src="https://corporatetechbd.com/public/backend/images/users/1.jpg" alt="user"
                                     class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
@@ -180,7 +187,7 @@
                                 <a class="dropdown-item" href="https://corporatetechbd.com/admin/password/change"><i
                                         class="fa fa-key m-r-5 m-l-5"></i> Change Password</a>
                                 <div class="dropdown-divider"></div>
-                                 <a class="dropdown-item" href="{{ route('logout') }}"><i
+                                <a class="dropdown-item" href="{{ route('logout') }}"><i
                                         class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
 
                             </div>

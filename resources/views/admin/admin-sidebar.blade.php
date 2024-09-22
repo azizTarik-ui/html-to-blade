@@ -47,6 +47,20 @@
                         </ul>
                     </li>
 
+                    <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="#"
+                            aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">People
+                            </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item"><a href="{{ route('customer.index') }}" class="sidebar-link"><i
+                                        class="mdi mdi-note-outline"></i><span class="hide-menu"> Customer List
+                                    </span></a></li>
+                            <li class="sidebar-item"><a href="{{ route('supplier.index') }}" class="sidebar-link"><i
+                                        class="mdi mdi-note-outline"></i><span class="hide-menu"> Supplier List
+                                    </span></a></li>
+                        </ul>
+
+                    </li>
+
                 </ul>
             </nav>
             <!-- End Sidebar navigation -->

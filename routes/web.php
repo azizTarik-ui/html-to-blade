@@ -7,6 +7,8 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\DetailsController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\CategoryContoller;
+use App\Http\Controllers\People\CustomerController;
+use App\Http\Controllers\People\SupplierController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Roles\RoleController;
 use App\Http\Controllers\SubCategoryController;
@@ -60,6 +62,11 @@ Route::middleware([AuthenticateMiddleware::class])->group(function () {
 
 // route::get('/roles', [RoleController::class, 'index'])->name('roles');
 route::resource('role', RoleController::class);
+
+
+route::resource('customer', CustomerController::class);
+
+route::resource('supplier', SupplierController::class);
 
 
 

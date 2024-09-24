@@ -10,7 +10,9 @@ use App\Http\Controllers\CategoryContoller;
 use App\Http\Controllers\People\CustomerController;
 use App\Http\Controllers\People\SupplierController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\Roles\RoleController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Middleware\AuthenticateMiddleware;
 use App\Models\Admin;
@@ -67,6 +69,10 @@ route::resource('role', RoleController::class);
 route::resource('customer', CustomerController::class);
 
 route::resource('supplier', SupplierController::class);
+
+route::resource('purchase', PurchaseController::class);
+
+route::resource('sale', SaleController::class);
 
 
 

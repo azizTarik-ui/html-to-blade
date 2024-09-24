@@ -42,7 +42,7 @@
                 <input type="number" value="{{ $sale->price }}" name="price" class="form-control">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
-            <a href="{{ route('purchase.index') }}" class="btn btn-primary">Cancel</a>
+            <a href="{{ route('sale.index') }}" class="btn btn-primary">Cancel</a>
         </form>
     </div>
 @endsection

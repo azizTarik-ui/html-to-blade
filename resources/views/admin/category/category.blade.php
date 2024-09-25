@@ -1,11 +1,16 @@
 @extends('admin.admin-main')
 
 @section('admin-main-container')
-   
-
-
-
     <div class="container mt-5">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @elseif (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
 
         <div class="d-flex justify-content-between mb-3">
             <div><a href="{{ route('add_category') }}" class="btn btn-primary">Add</a></div>

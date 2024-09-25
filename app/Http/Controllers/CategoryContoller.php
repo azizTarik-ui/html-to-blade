@@ -123,6 +123,6 @@ class CategoryContoller extends Controller
     public function destroy(string $id)
     {
         Category::find($id)->delete();
-        return redirect()->route('category.index');
+        return back()->with('error', 'Deleted.');
     }
 }

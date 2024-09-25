@@ -43,7 +43,7 @@
                         <td>{{ $sale->price }}</td>
                         <td>{{ $sale->price * $sale->quantity }}</td>
                         <td>
-                            <div class="btn-group">
+                            <div class="btn-group" style="column-gap: 4px;">
                                 <a href="{{ route('sale.edit', $sale->id) }}"
                                     class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('sale.destroy', $sale->id) }}" method="POST"

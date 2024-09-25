@@ -42,6 +42,7 @@ class ProductController extends Controller
         $data->sub_category_id = $request->sub_category_id;
         $data->name = $request->name;
         $data->price = $request->price;
+        $data->status = $request->status;
         $data->save();
         return back();
     }
@@ -79,6 +80,7 @@ class ProductController extends Controller
         $data->sub_category_id = $request->sub_category_id;
         $data->name = $request->name;
         $data->price = $request->price;
+        $data->status = $request->status;
         $data->save();
         return redirect()->route('product_list');
     }

@@ -3,7 +3,15 @@
 @section('admin-main-container')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <div class="container mt-5">
-
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @elseif (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="d-flex justify-content-between mb-3">
             <div><a href="{{ route('add_product') }}" class="btn btn-primary">Add</a></div>
             <div>
@@ -19,6 +27,7 @@
                     <th>Name</th>
                     <th>Price</th>
                     <th>Action</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,12 +39,19 @@
                         <td>{{ $product->sub_category->name ?? '' }}</td>
                         <td>{{ $product->name }}</td>
                         <td>{{ $product->price }}</td>
-
+                        <td class="{{ $product->status == 1 ? 'text-primary' : 'text-danger' }}">
+                            @if ($product->status == 1)
+                                Active
+                            @else
+                                Inactive
+                            @endif
+                        </td>
                         <td>
                             <a href="{{ route('edit_product', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
                             <a href="{{ route('delete_product', $product->id) }}" onclick="return confirm('Are You Sure?')"
                                 class="btn btn-danger btn-sm">Delete</a>
                         </td>
+
                     </tr>
                 @endforeach
 

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('sub_category_id');
             $table->string('name');
             $table->double('price');
+            $table->string('status')->default(1);
             $table->timestamps();
         });
     }

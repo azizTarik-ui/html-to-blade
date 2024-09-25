@@ -3,10 +3,18 @@
 @section('admin-main-container')
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <div class="container mt-5">
-
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @elseif (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="d-flex justify-content-between mb-3">
             <div><a href="{{ route('customer.create') }}" class="btn btn-primary">Add</a></div>
-            
+
             <div>
 
             </div>
@@ -30,8 +38,14 @@
                         <td>{{ $customer->name }}</td>
 
                         <td>
-                            <div class="btn-group">
-                                <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <div class="btn-group justify-content-evenly">
+                                <div>
+                                    <a href="{{ route('customer.edit', $customer->id) }}"
+                                        class="btn btn-warning btn-sm">Edit</a>
+                                </div>
+                                <div>
+
+                                </div>
                                 <form action="{{ route('customer.destroy', $customer->id) }}" method="POST"
                                     onclick="return confirm('Are You Sure?')">
                                     @method('delete')

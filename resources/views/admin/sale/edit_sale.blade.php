@@ -20,7 +20,8 @@
                 <select name = "product_id" class="form-control">
                     @if (!@empty($products))
                         @foreach ($products as $product)
-                            <option value="{{ $product->id }}">{{ $product->name }}</option>
+                            <option value="{{ $product->id }}" @if ($sale->product_id == $product->id) selected @endif>
+                             {{ $product->name }}</option>
                         @endforeach
                     @endif
                 </select>
@@ -29,7 +30,9 @@
                 <label>Customer Name</label>
                 <select name = "customer_id" class="form-control">
                     @foreach ($customers as $customer)
-                        <option value="{{ $customer->id }}">{{ $customer->name }}</option>
+                        {{-- <option value="{{ $customer->id }}">{{ $customer->name }}</option> --}}
+                        <option value="{{ $customer->id }}" @if ($sale->customer_id == $customer->id) selected @endif>
+                             {{ $customer->name }}</option>
                     @endforeach
                 </select>
             </div>
